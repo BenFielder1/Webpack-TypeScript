@@ -1,6 +1,6 @@
 /* This is a small side project within this one 
 /  which I have been working on. To run it, change index.ts
-/  to snake.ts to run this code   */
+/  to snake.ts in webpack.config.js to run this code   */
 
 import * as p5 from "p5"
 const PF = require("pathfinding")

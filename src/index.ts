@@ -14,6 +14,7 @@ let sketch = function (p: p5) {
     var boxB: Matter.Body;
     var circle: Matter.Body;
     var ground: Matter.Body;
+    var platform: Matter.Body;
 
     p.setup = function () {
         p.createCanvas(700, 410);
@@ -24,8 +25,9 @@ let sketch = function (p: p5) {
         boxB = Bodies.rectangle(450, 50, 80, 80);
         circle = Bodies.circle(50, 50, 25)
         ground = Bodies.rectangle(400, 410, 810, 60, { isStatic: true });
+        platform = Bodies.rectangle(200, 100, 100, 30, { isStatic: true });
 
-        World.add(engine.world, [boxA, boxB, ground, circle]);
+        World.add(engine.world, [boxA, boxB, ground, circle, platform]);
     };
 
     p.draw = function () {
@@ -46,9 +48,7 @@ let sketch = function (p: p5) {
 
 
         if (p.keyIsDown(p.UP_ARROW)) {
-            if(boxA.position.y >= 325){
-                Matter.Body.applyForce(boxA, boxA.position, { x: 0, y: -0.1 });
-            }  
+            Matter.Body.applyForce(boxA, boxA.position, { x: 0, y: -0.01 });
         }
         if (p.keyIsDown(p.LEFT_ARROW)) {
             Matter.Body.applyForce(boxA, boxA.position, { x: -0.01, y: 0 });
