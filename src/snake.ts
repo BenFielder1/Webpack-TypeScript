@@ -1,3 +1,7 @@
+/* This is a small side project within this one 
+/  which I have been working on. To run it, change index.ts
+/  to snake.ts to run this code   */
+
 import * as p5 from "p5"
 const PF = require("pathfinding")
 
@@ -103,17 +107,6 @@ let snake = function(p5: p5) {
     //implenting pathfinding library
     usefulGrid = new PF.Grid(grid)
     path = finder.findPath(snakeX[0], snakeY[0], appleX, appleY, usefulGrid)
-    // if(path === null || path.length < 2){
-    //   grid = []
-    //   for(let y = 0; y < height1+1; y++){
-    //     grid.push([])
-    //     for(let x = 0; x < width1+1; x++){
-    //       grid[y].push(0)
-    //     }
-    //   }
-    //   usefulGrid = new PF.Grid(grid)
-    //   path = finder.findPath(snakeX[0], snakeY[0], 1, 1, usefulGrid)
-    // }
   
     checkDirection()
     checkForWallCollision()
@@ -123,7 +116,7 @@ let snake = function(p5: p5) {
     if(isDead){
       p5.fill(255, 255, 0)
       p5.textSize(20)
-      p5.text("You died, hit space to play again", 150, 300)
+      p5.text("You died, reload page to play again", 150, 300)
       console.log(direction)
       console.log(lastDirection)
       console.log(lastActualDirection)
@@ -139,15 +132,6 @@ let snake = function(p5: p5) {
       }
     }
   }
-
-//   p5.keyPressed = function(){
-//     if(p5.keyCode === 32){
-//         if(isDead){
-//           isDead = false
-//           p5.loop()
-//         }
-//     }
-//   }
 }
 
 function moveSnake(path: any){
